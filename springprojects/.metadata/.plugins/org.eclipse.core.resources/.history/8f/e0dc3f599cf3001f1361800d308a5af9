@@ -1,0 +1,5 @@
+package com.example.microserviceclient.controller;
+
+public class HelloController {
+
+}
