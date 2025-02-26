@@ -1,0 +1,17 @@
+Start your application:
+
+mvn spring-boot:run
+
+if the service runs
+http://localhost:8080/to-read
+output :  
+["Spring in Action (Manning)", "Cloud Native Java (O'Reilly)", "Learning Spring Boot (Packt)"]
+ to end the service 
+press ctrl C
+and give the terminal (Y/N) : Y
+if the Service is down 
+output : 
+http://localhost:8080/to-read
+["Fallback: No books available at the moment."]
+
+
