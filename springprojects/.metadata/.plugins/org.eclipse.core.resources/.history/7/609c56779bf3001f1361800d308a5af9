@@ -1,3 +1,0 @@
-spring.application.name=Spring_Starter_Project
-server.port=8888
-spring.cloud.config.server.git.uri=https://github.com/your-github-repo/config-repo
