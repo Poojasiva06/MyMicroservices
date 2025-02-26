@@ -1,0 +1,45 @@
+You need to replace your existing toRead() method inside DemoController with the one that throws a RuntimeException.
+
+Updated DemoController.java
+Replace this:
+
+java
+Copy
+Edit
+@GetMapping
+@CircuitBreaker(name = CIRCUIT_BREAKER_NAME, fallbackMethod = "fallbackBooks")
+public List<String> toRead() {
+    return Arrays.asList(
+        "Spring in Action (Manning)",
+        "Cloud Native Java (O'Reilly)",
+        "Learning Spring Boot (Packt)"
+    );
+}
+With this:
+
+java
+Copy
+Edit
+@GetMapping
+@CircuitBreaker(name = CIRCUIT_BREAKER_NAME, fallbackMethod = "fallbackBooks")
+public List<String> toRead() {
+    throw new RuntimeException("Simulated service failure!");
+}
+Steps to Test the Fallback
+Save the file in your IDE.
+Restart your Spring Boot application using:
+sh
+Copy
+Edit
+mvn spring-boot:run
+Open your browser and go to:
+http://localhost:8080/to-read
+✅ Expected output (fallback response):
+
+json
+Copy
+Edit
+["Fallback: No books available at the moment."]
+This simulates a failure and allows Resilience4j CircuitBreaker to trigger the fallback method.
+
+Let me know if you face any issues! 🚀
